@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Interativo: África do Sul</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button.active {
+            background-color: #5A7D7C;
+            color: #FFFFFF;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .content-panel {
+            display: none;
+        }
+        .content-panel.active {
+            display: block;
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E5E7EB;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#4A4A4A]">Painel Interativo: África do Sul</h1>
+            <p class="text-lg text-gray-600 mt-2">Uma exploração dos dados e factos chave do país.</p>
+        </header>
+
+        <nav class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8">
+            <button data-tab="overview" class="nav-button active text-sm sm:text-base font-semibold py-2 px-4 rounded-full bg-white text-gray-700 hover:bg-gray-100">Visão Geral</button>
+            <button data-tab="economy" class="nav-button text-sm sm:text-base font-semibold py-2 px-4 rounded-full bg-white text-gray-700 hover:bg-gray-100">Economia</button>
+            <button data-tab="society" class="nav-button text-sm sm:text-base font-semibold py-2 px-4 rounded-full bg-white text-gray-700 hover:bg-gray-100">Sociedade e Cultura</button>
+            <button data-tab="current" class="nav-button text-sm sm:text-base font-semibold py-2 px-4 rounded-full bg-white text-gray-700 hover:bg-gray-100">Cenário Atual</button>
+        </nav>
+
+        <main>
+            <div id="overview" class="content-panel active">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-bold text-[#5A7D7C] mb-4">Visão Geral</h2>
+                    <p class="text-gray-600 mb-6">Esta secção apresenta os dados fundamentais sobre a geografia, demografia, história e sistema político da África do Sul, fornecendo um contexto essencial sobre a nação.</p>
+                    <div class="grid md:grid-cols-3 gap-4 mb-6 text-center">
+                        <div class="kpi-card">
+                            <h3 class="text-gray-500 font-semibold">População (2023)</h3>
+                            <p class="text-3xl font-bold text-[#B88B4A]">~60 Milhões</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h3 class="text-gray-500 font-semibold">Área Territorial</h3>
+                            <p class="text-3xl font-bold text-[#B88B4A]">1,22M km²</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h3 class="text-gray-500 font-semibold">Densidade</h3>
+                            <p class="text-3xl font-bold text-[#B88B4A]">~48 hab/km²</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-700 mb-2">História do Século XX</h3>
+                            <p class="text-gray-600 mb-2">A história sul-africana é marcada pelo colonialismo e pela luta contra o Apartheid, um regime de segregação racial institucionalizado em 1948. A transição para a democracia ocorreu em 1994, com a eleição de Nelson Mandela, que se tornou o primeiro presidente negro do país após 27 anos de prisão.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-700 mb-2">Geografia e Política</h3>
+                            <p class="text-gray-600 mb-2"><span class="font-semibold">Localização:</span> Extremo sul do continente africano.</p>
+                            <p class="text-gray-600 mb-2"><span class="font-semibold">Relevo e Clima:</span> Diversificado, com planícies costeiras, montanhas (Drakensberg), desertos (Kalahari) e climas que variam de mediterrâneo a desértico.</p>
+                            <p class="text-gray-600"><span class="font-semibold">Governo:</span> República presidencialista com um sistema democrático multipartidário. O presidente em 2023 é Cyril Ramaphosa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="economy" class="content-panel">
+                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-bold text-[#5A7D7C] mb-4">Panorama Económico</h2>
+                     <p class="text-gray-600 mb-6">A África do Sul possui uma das maiores economias do continente, impulsionada por recursos naturais e setores em desenvolvimento. Explore abaixo os principais indicadores e a composição setorial. Para mais detalhes, passe o rato sobre as barras do gráfico.</p>
+                    <div class="grid md:grid-cols-3 gap-4 mb-6 text-center">
+                        <div class="kpi-card">
+                            <h3 class="text-gray-500 font-semibold">PIB (2023)</h3>
+                            <p class="text-3xl font-bold text-[#B88B4A]">US$ 419 Bilhões</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h3 class="text-gray-500 font-semibold">Renda per capita (2023)</h3>
+                            <p class="text-3xl font-bold text-[#B88B4A]">US$ 6.000</p>
+                        </div>
+                        <div class="kpi-card">
+                            <h3 class="text-gray-500 font-semibold">IDH (2019)</h3>
+                            <p class="text-3xl font-bold text-[#B88B4A]">0,709 (Alto)</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4 text-center">Principais Setores Económicos</h3>
+                        <div class="chart-container">
+                            <canvas id="economyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="society" class="content-panel">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-bold text-[#5A7D7C] mb-4">Sociedade e Cultura</h2>
+                    <p class="text-gray-600 mb-6">A sociedade sul-africana é um mosaico de culturas e etnias, mas ainda enfrenta desafios sociais significativos herdados do seu passado. Esta secção aborda as dinâmicas sociais, a riqueza cultural e as alianças internacionais do país.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-700 mb-2">Desafios Sociais</h3>
+                            <p class="text-gray-600">Apesar do fim do Apartheid, a desigualdade social e racial continua a ser um desafio prioritário. Altas taxas de desemprego e disparidades económicas persistem, motivando uma contínua luta por justiça social e igualdade.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-700 mb-2">Diversidade Cultural</h3>
+                            <p class="text-gray-600">O país celebra uma vasta diversidade cultural e étnica, com influências de grupos indígenas, africanos, europeus e asiáticos. É o berço do estilo musical "Kwaito" e tem o râguebi e o futebol como os seus desportos mais populares.</p>
+                        </div>
+                         <div>
+                            <h3 class="text-xl font-semibold text-gray-700 mb-2">Alianças e Blocos</h3>
+                            <p class="text-gray-600">A África do Sul é um membro ativo em várias organizações internacionais, incluindo a Commonwealth e o BRICS (Brasil, Rússia, Índia, China, África do Sul), reforçando a sua cooperação económica e de segurança a nível global.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-700 mb-2">Forças Armadas</h3>
+                            <p class="text-gray-600">As forças armadas são compostas pelo Exército, Marinha e Força Aérea, responsáveis pela defesa nacional e pela participação em operações internacionais de manutenção da paz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="current" class="content-panel">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h2 class="text-2xl font-bold text-[#5A7D7C] mb-4">Cenário Atual (Notícias de 2023)</h2>
+                    <p class="text-gray-600 mb-6">Em 2023, a África do Sul navega por um cenário complexo de desafios internos e progressos em áreas chave. A agenda nacional está focada em reformas estruturais e na resposta a crises emergentes, enquanto se capitalizam avanços importantes.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <h3 class="text-xl font-semibold text-red-800 mb-2">Desafios</h3>
+                            <ul class="list-disc list-inside text-red-700 space-y-1">
+                                <li>Discussões sobre reformas políticas e económicas.</li>
+                                <li>Combate contínuo à corrupção.</li>
+                                <li>Crise energética e aumento da inflação.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                            <h3 class="text-xl font-semibold text-green-800 mb-2">Avanços</h3>
+                            <ul class="list-disc list-inside text-green-700 space-y-1">
+                                <li>Programas de incentivo ao turismo.</li>
+                                <li>Investimentos em energias renováveis.</li>
+                                <li>Progresso na vacinação contra a COVID-19.</li>
+                                <li>Esforços no combate às mudanças climáticas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.nav-button');
+            const panels = document.querySelectorAll('.content-panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    panels.forEach(p => p.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    const targetPanel = document.getElementById(tab.dataset.tab);
+                    if (targetPanel) {
+                        targetPanel.classList.add('active');
+                    }
+                });
+            });
+
+            const economyData = {
+                labels: ['Mineração (Ouro, Platina)', 'Agricultura', 'Turismo'],
+                datasets: [{
+                    label: 'Importância no Setor Económico',
+                    data: [40, 30, 30],
+                    backgroundColor: [
+                        'rgba(184, 139, 74, 0.7)',
+                        'rgba(90, 125, 124, 0.7)',
+                        'rgba(74, 74, 74, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(184, 139, 74, 1)',
+                        'rgba(90, 125, 124, 1)',
+                        'rgba(74, 74, 74, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            const economyChartCtx = document.getElementById('economyChart').getContext('2d');
+            new Chart(economyChartCtx, {
+                type: 'bar',
+                data: economyData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += `Representa ${context.parsed.y}% da economia destacada.`;
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                callback: function(value) {
+                                    const label = this.getLabelForValue(value);
+                                    if (label.length > 16) {
+                                        return label.split(' ').slice(0, 2).join(' ') + '...';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
